@@ -1,5 +1,5 @@
 void main() {
-    println("""
+    IO.println("""
         ===========================================
         |   SISTEMA DE MATRÍCULA - PUCE TEC       |
         |      Carrera de Desarrollo de Software  |
@@ -10,22 +10,23 @@ void main() {
     String m1 = "Fundamentos de Programación";
     double n1 = 0.0;
     
-    usr = readln("Ingrese el nombre del estudiante: ");
-    String op = readln("¿Es estudiante de reingreso o arrastre? (S/N): ");
+    usr = IO.readln("Ingrese el nombre del estudiante: ");
+    String op = IO.readln("¿Es estudiante de reingreso o arrastre? (S/N): ");
 
-    String[] h_materias = null; 
+    String[] h_materias = new String[0];
 
     if (op.equalsIgnoreCase("S")) {
         h_materias = new String[]{ m1 };
-        String inputNota = readln("Ingrese la nota final obtenida en '" + m1 + "' (0-10): ");
+        String inputNota = IO.readln("Ingrese la nota final obtenida en '" + m1 + "' (0-10): ");
         n1 = Double.parseDouble(inputNota);
     } else {
-        println("-> Registrando como estudiante de Primer Semestre...");
+        IO.println("-> Registrando como estudiante de Primer Semestre...");
+        h_materias = new String[]{};
     }
 
-    println("\n--- MATERIA A SOLICITAR ---");
-    println("Materia destino: [ Estructuras de Datos ] (Requisito: Haber aprobado Fundamentos con >= 7.0)");
-    String reqCupo = readln("¿Desea solicitar el cupo para esta materia? (S/N): ");
+    IO.println("\n--- MATERIA A SOLICITAR ---");
+    IO.println("Materia destino: [ Estructuras de Datos ] (Requisito: Haber aprobado Fundamentos con >= 7.0)");
+    String reqCupo = IO.readln("¿Desea solicitar el cupo para esta materia? (S/N): ");
 
     if (reqCupo.equalsIgnoreCase("S")) {
         boolean p1 = false;
@@ -48,9 +49,9 @@ void main() {
             default -> "Error del sistema.";
         };
 
-        println("\n[RESULTADO]: " + resultadoMatricula);
+        IO.println("\n[RESULTADO]: " + resultadoMatricula);
 
     } else {
-        println("\nProceso finalizado. No se solicitaron materias de segundo nivel.");
+        IO.println("\nProceso finalizado. No se solicitaron materias de segundo nivel.");
     }
 }
