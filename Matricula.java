@@ -6,22 +6,22 @@ void main() {
         ===========================================
         """);
 
-    String usr = "";
-    String m1 = "Fundamentos de Programación";
-    double n1 = 0.0;
+    String nombreEstudiante = "";
+    String PrerrequisitoProgramacion = "Fundamentos de Programación";
+    double NotaPrerrequisito = 0.0;
     
-    usr = IO.readln("Ingrese el nombre del estudiante: ");
-    String op = IO.readln("¿Es estudiante de reingreso o arrastre? (S/N): ");
+    nombreEstudiante = IO.readln("Ingrese el nombre del estudiante: ");
+    String EsEstudianteReingreso = IO.readln("¿Es estudiante de reingreso o arrastre? (S/N): ");
 
-    String[] h_materias = new String[0];
+    String[] HistorialMaterias = new String[0];
 
-    if (op.equalsIgnoreCase("S")) {
-        h_materias = new String[]{ m1 };
-        String inputNota = IO.readln("Ingrese la nota final obtenida en '" + m1 + "' (0-10): ");
-        n1 = Double.parseDouble(inputNota);
+    if (EsEstudianteReingreso.equalsIgnoreCase("S")) {
+        HistorialMaterias = new String[]{ PrerrequisitoProgramacion };
+        String inputNota = IO.readln("Ingrese la nota final obtenida en '" + PrerrequisitoProgramacion + "' (0-10): ");
+        NotaPrerrequisito = Double.parseDouble(inputNota);
     } else {
         IO.println("-> Registrando como estudiante de Primer Semestre...");
-        h_materias = new String[]{};
+        HistorialMaterias = new String[]{};
     }
 
     IO.println("\n--- MATERIA A SOLICITAR ---");
@@ -29,20 +29,20 @@ void main() {
     String reqCupo = IO.readln("¿Desea solicitar el cupo para esta materia? (S/N): ");
 
     if (reqCupo.equalsIgnoreCase("S")) {
-        boolean p1 = false;
+        boolean TienePrerrequisito = false;
 
-        for (int i = 0; i < h_materias.length; i++) {
-            if (h_materias[i].equals(m1)) {
-                p1 = true;
+        for (int i = 0; i < HistorialMaterias.length; i++) {
+            if (HistorialMaterias[i].equals(PrerrequisitoProgramacion)) {
+                TienePrerrequisito = true;
             }
         }
 
-        String resultadoMatricula = switch (String.valueOf(p1)) {
+        String resultadoMatricula = switch (String.valueOf(TienePrerrequisito)) {
             case "true" -> {
-                if (n1 >= 7.0) {
+                if (NotaPrerrequisito >= 7.0) {
                     yield "MATRÍCULA APROBADA: Cumple con el prerrequisito.";
                 } else {
-                    yield "MATRÍCULA RECHAZADA: Reprobó el prerrequisito con " + n1;
+                    yield "MATRÍCULA RECHAZADA: Reprobó el prerrequisito con " + NotaPrerrequisito;
                 }
             }
             case "false" -> "MATRÍCULA RECHAZADA: No cuenta con el prerrequisito en su historial.";
