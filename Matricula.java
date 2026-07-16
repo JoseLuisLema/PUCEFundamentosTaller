@@ -44,7 +44,9 @@ void main() {
 
         String resultadoMatricula = switch (String.valueOf(TienePrerrequisito)) {
             case "true" -> {
-                if (NotaPrerrequisito >= 7.0) {
+                if (NotaPrerrequisito == 10.0) {
+                    yield "MATRÍCULA APROBADA: Cumple con el prerrequisito.\n¡Felicidades! Ha sido seleccionado como Tutor de Programación del PUCE TEC para este semestre.";
+                } else if (NotaPrerrequisito >= 7.0) {
                     yield "MATRÍCULA APROBADA: Cumple con el prerrequisito.";
                 } else {
                     yield "MATRÍCULA RECHAZADA: Reprobó el prerrequisito con " + NotaPrerrequisito;
