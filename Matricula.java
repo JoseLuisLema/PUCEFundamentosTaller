@@ -9,9 +9,12 @@ void main() {
     String nombreEstudiante = "";
     String PrerrequisitoProgramacion = "Fundamentos de Programación";
     double NotaPrerrequisito = 0.0;
-    
-    nombreEstudiante = IO.readln("Ingrese el nombre del estudiante: ");
-    String EsEstudianteReingreso = IO.readln("¿Es estudiante de reingreso o arrastre? (S/N): ");
+
+    IO.println("Ingrese el nombre del estudiante: ");
+    nombreEstudiante = IO.readln();
+
+    IO.println("¿Es estudiante de reingreso o arrastre? (S/N): ");
+    String EsEstudianteReingreso = IO.readln();
 
     String[] HistorialMaterias = new String[0];
 
@@ -21,7 +24,9 @@ void main() {
         NotaPrerrequisito = Double.parseDouble(inputNota);
     } else {
         IO.println("-> Registrando como estudiante de Primer Semestre...");
-        HistorialMaterias = new String[]{};
+        HistorialMaterias = new String[]{ PrerrequisitoProgramacion };
+        String inputNota = IO.readln("Ingrese la nota final obtenida en '" + PrerrequisitoProgramacion + "' (0-10): ");
+        NotaPrerrequisito = Double.parseDouble(inputNota);
     }
 
     IO.println("\n--- MATERIA A SOLICITAR ---");
@@ -32,7 +37,7 @@ void main() {
         boolean TienePrerrequisito = false;
 
         for (int i = 0; i < HistorialMaterias.length; i++) {
-            if (HistorialMaterias[i].equals(PrerrequisitoProgramacion)) {
+            if (HistorialMaterias[i].equalsIgnoreCase(PrerrequisitoProgramacion)) {
                 TienePrerrequisito = true;
             }
         }
