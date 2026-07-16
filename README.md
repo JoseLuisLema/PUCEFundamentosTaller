@@ -1,32 +1,22 @@
-# PUCEFundamentos01
-## 🚀 Taller Autónomo - Operación Código Legacy
-
-Bienvenidos a su primer reto de mantenimiento de software. En el mundo real, rara vez crearán sistemas desde cero; la mayor parte del tiempo heredarán código escrito por otras personas, a menudo sin documentación, con nombres confusos y errores ocultos.
-
-Hoy asumen el rol de **Analistas de Desarrollo**. El departamento de TI del PUCE TEC les ha entregado el módulo beta de validación de matrículas escrito en Java 25. El programador anterior fue reasignado y dejó el trabajo a medias.
-
-El sistema compila, pero tiene fallos estructurales graves. Su objetivo es entenderlo, arreglarlo y mejorarlo.
-
----
-
-### Misión de la Semana (Trabajo en Grupos)
-
-### Fase 1: Ingeniería Inversa
-* **Clonen** este repositorio y creen una rama (`branch`) con el nombre de su grupo.
-* **Lean** el código línea por línea. Usen herramientas de IA si lo necesitan, pero *solo para entender*, no para reescribir.
-* **Expliquen** en el archivo `README.md` de forma clara y objetiva qué problema resuelve esta aplicación y describan el flujo de datos.
-
-### Fase 2: Refactorización y Debugging
-* **Nombres vagos:** El código está lleno de variables como `usr`, `m1`, `n1`, `p1`. Renómbrenlas usando las buenas prácticas de la industria para que el código sea legible.
-* **El Bug Oculto:** Si ejecutan el programa y registran a un estudiante nuevo (que no es de reingreso), el sistema colapsa abruptamente al evaluar la materia destino. Encuentren la línea exacta que causa la excepción, entiendan por qué ocurre lógicamente y apliquen la solución en el código.
-
-### Fase 3: Nueva Funcionalidad (Requerimiento del Cliente)
-Dirección Académica ha solicitado un cambio urgente en la regla de negocio:
-
-> Si un estudiante aprueba el prerrequisito con una calificación perfecta de **10.0**, el sistema no solo debe aprobar la matrícula, sino imprimir el siguiente mensaje destacado: *"¡Felicidades! Ha sido seleccionado como Tutor de Programación del PUCE TEC para este semestre."*
-
----
-
-### Entregables Finales
-* **Pull Request:** Suban sus cambios a GitHub y abran un *Pull Request* hacia el repositorio original. Se evaluará el historial de commits para validar el trabajo en equipo.
-* **Video de Defensa Técnica (Máximo 3 minutos):** Incluyan el enlace al video en la descripción de su Pull Request. En la grabación deben demostrar la aplicación funcionando sin errores en la terminal, explicar dónde estaba el error oculto y cómo lo solucionaron, y mostrar el código refactorizado con la nueva funcionalidad implementada.
+Integrantes:
+Luis David Flores Hurtado
+Jose Luis Lema Garcia
+Sistema de Validacion de Matricula - PUCE TEC
+Este programa automatiza la validacion de matriculas para los estudiantes de la carrera de Desarrollo de Software en el PUCE TEC. Su funcion principal es controlar el acceso a la materia "Estructuras de Datos", verificando que el alumno haya aprobado previamente su prerrequisito obligatorio,"Fundamentos de Programacion", con una nota minima de 7.0.
+Descripcion del Problema
+El sistema se encarga de:
+Registrar los datos basicos del alumno.
+Identificar si es un estudiante de reingreso o de primer semestre (arrastre).
+Revisar su historial academico para verificar el cumplimiento de requisitos.
+Determinar de forma automatica si la matricula es aprobada o rechazada.
+Reconocer con un mensaje especial a los estudiantes que obtuvieron una calificacion perfecta (10.0).
+Flujo de Datos del Sistema
+1.- Inicio: El sistema da la bienvenida, presenta la informacipon de la aplicacion y solicita el nombre del estudiante.
+2.- Clasificacion: El usuario indica si es de reingreso o arrastre. Dependiendo de la seleccion, el programa solicita la nota obtenida en la materia prerrequisito.
+3.- Registro: Se guarda "Fundamentos de Programacion" como la asignatura llave para evaluar el acceso a "Estructuras de Datos".
+4.- Verificacion: El alumno solicita el cupo y el sistema busca en su historial si cumple con el prerrequisito.
+5.- Decisiones:
+Nota >= 7.0: Matricula aprobada.
+Nota < 7.0: Matricula rechazada.
+Nota = 10.0: Matricula aprobada + reconocimiento especial como Tutor de Programacion.
+6.- Resultado: El sistema muestra en pantalla el estado final del proceso de matricul
